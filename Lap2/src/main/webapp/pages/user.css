@@ -1,0 +1,67 @@
+
+body {
+    background-image: url('https://thietbiketnoi.com/wp-content/uploads/2020/01/tong-hop-hinh-nen-background-vector-designer-dep-do-phan-giai-fhd-2k-4k-moi-nhat-4-1024x512.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.seasion-one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(8px); /* Hiệu ứng làm mờ nền phía sau */
+}
+.container {
+    max-width: 700px;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.6); /* Tăng độ trong suốt */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Tạo bóng đổ */
+    backdrop-filter: blur(5px); /* Hiệu ứng làm mờ bên trong container */
+}
+.formm label {
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+.formm input,
+.formm section {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.formm .select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333333;
+    background-color: #ffffff;
+}
+.formm input:focus,
+.formm select:focus {
+    outline: none;
+    border-color: #3f51b5;
+    box-shadow: 0 0 4px rgba(63, 81, 181, 0.3);
+}
+.btn {
+    margin-top: 30px;
+}
+.table {
+    margin-top: 40px;
+}
