@@ -81,9 +81,11 @@
   }
 </style>
 <body>
-<h2>Đăng Nhập</h2>
+
 
 <form action="login" method="post">
+  <p><%= request.getAttribute("hello") %></p>
+  <p>Đăng Nhập </p>
   <label for="username">Tên đăng nhập:</label>
   <input type="text" id="username" name="username" required><br>
 
@@ -91,12 +93,14 @@
   <input type="password" id="password" name="password" required><br>
 
   <button type="submit">Đăng Nhập</button>
+
 </form>
 
 <!-- Hiển thị thông báo lỗi nếu có -->
 <c:if test="${not empty error}">
   <p style="color: red;">${error}</p>
 </c:if>
+
 </body>
 </html>
 

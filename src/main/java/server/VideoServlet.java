@@ -227,4 +227,6 @@ public class VideoServlet extends HttpServlet {
         request.setAttribute("videos", videoDao.findAll());
         request.getRequestDispatcher("/pages/videoList.jsp").forward(request, response);
     }
+
+
 }

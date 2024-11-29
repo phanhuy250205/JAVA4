@@ -91,7 +91,8 @@
     </script>
 </head>
 <body>
-
+    <p>Số Lượt Khách Truy Cập : ${applicationScope.visitors}</p>
+    <p><%= request.getAttribute("hello") %></p>
 <form id="search-form" onsubmit="event.preventDefault(); searchVideos();">
     <input type="text" id="keyword" name="keyword" placeholder="Nhập từ khóa tìm kiếm..." value="${param.keyword}">
     <button type="submit">Tìm kiếm</button>

@@ -1,7 +1,10 @@
 package server;
 
+import Dao.Logdaolmpl;
+import Dao.Logsdao;
 import Dao.UserDao;
 import Dao.UserDaoImpl;
+import entity.Log;
 import entity.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -35,16 +39,30 @@ public class LoginServlet extends HttpServlet {
         User user = userDao.findByUsernameAndPassword(username, password);
 
         if (user != null) {
-            // Nếu đăng nhập thành công, lưu userId và fullname vào session
+            // Lưu userId và fullname vào session
             request.getSession().setAttribute("userId", user.getId());
-            request.getSession().setAttribute("fullname", user.getFullname());  // Lưu fullname vào session
+            request.getSession().setAttribute("fullname", user.getFullname());
 
-            // Chuyển hướng đến trang video sau khi đăng nhập thành công
+            // Ghi log đăng nhập
+            logAccess(request, user.getEmail());
+
+            // Chuyển hướng đến trang video
             response.sendRedirect("videos?action=list");
         } else {
-            // Nếu đăng nhập không thành công, chuyển hướng và hiển thị thông báo lỗi
+            // Hiển thị thông báo lỗi
             String errorMessage = "Invalid username or password.";
             response.sendRedirect("login.jsp?error=" + errorMessage);
         }
+    }
+
+    private void logAccess(HttpServletRequest request, String username) {
+        // Sử dụng LogsDAO để lưu thông tin đăng nhập vào CSDL
+        Logsdao logsDao = new Logdaolmpl();
+        Log log = new Log();
+        log.setUrl(request.getRequestURI());
+        log.setTime(LocalDateTime.now());
+        log.setUsername(username);
+        logsDao.create(log);
+
     }
 }

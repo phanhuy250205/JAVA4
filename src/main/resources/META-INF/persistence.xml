@@ -4,7 +4,8 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>entity.User</class>
         <class>entity.Favorites</class>
-        <class>entity.Videos</class><!-- Thay thế bằng các lớp thực thể cụ thể -->
+        <class>entity.Videos</class>
+        <class>entity.Log</class><!-- Thay thế bằng các lớp thực thể cụ thể -->
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=PolyOE"/>
